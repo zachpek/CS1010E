@@ -11,12 +11,12 @@ from math import sqrt
 
 def rootsCharacter(a, b, c):
     # Calculates and characterises the roots of a quadratic equation of the form ax^2 + bx + c = 0, where b^2 >= 4ac.
-    
+    #
     # Args:
     #     a (float): coefficient of x^2 term of quadratic equation.
     #     b (float): coefficient of x term of quadratic equation.
     #     c (float): constant term of quadratic equation.
-
+    #
     # Returns:
     #     int:
     #        1 if both roots are positive,
@@ -40,12 +40,37 @@ def rootsCharacter(a, b, c):
 
 from math import *
 
-def areaPoly(n,d):
-    # Insert code and comments 
-    pass # delete this line before submitting your code
+def perimeterPoly(n, d):
+    return n * d
+
+def apothemPoly(n, d):
+    return d / (2 * tan(pi / n))
+
+def areaPoly(n, d):
+    # Calculates the area of a regular polygon.
+    # 
+    # Args:
+    #     n (int): number of corners in the polygon.
+    #     d (float): length of one of the sides of the polygon.
+    # 
+    # Returns:
+    #     float: area of the polygon.
+
+    perimeter = n * d
+    apothem = d / (2 * tan(pi / n))
+    area = perimeter * apothem / 2
+    return area
 
 def polySide(n, area):
-    # Insert code and comments below
+    # Calculates the length of one of the sides of a regular polygon.
+    # 
+    # Args:
+    #     n (int): number of corners in the polygon.
+    #     area (float): area of the polygon.
+    #
+    # Returns:
+    #     float: length of one of the sides of the polygon. 
+
     pass # delete this line before submitting your code
 
 
