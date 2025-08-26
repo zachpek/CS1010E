@@ -71,7 +71,7 @@ def polySide(n, area):
     # Returns:
     #     float: length of one of the sides of the polygon. 
 
-    pass # delete this line before submitting your code
+    return sqrt((4 * area * tan(pi / n)) / n)
 
 
 # Task 3: Area of a circle with an inscribed square
