@@ -13,9 +13,9 @@ def rootsCharacter(a, b, c):
     # Calculates and characterises the roots of a quadratic equation of the form ax^2 + bx + c = 0, where b^2 >= 4ac.
     #
     # Args:
-    #     a (float): coefficient of x^2 term of quadratic equation.
-    #     b (float): coefficient of x term of quadratic equation.
-    #     c (float): constant term of quadratic equation.
+    #     a (float or int): coefficient of x^2 term of quadratic equation.
+    #     b (float or int): coefficient of x term of quadratic equation.
+    #     c (float or int): constant term of quadratic equation.
     #
     # Returns:
     #     int:
@@ -40,18 +40,12 @@ def rootsCharacter(a, b, c):
 
 from math import *
 
-def perimeterPoly(n, d):
-    return n * d
-
-def apothemPoly(n, d):
-    return d / (2 * tan(pi / n))
-
 def areaPoly(n, d):
     # Calculates the area of a regular polygon.
     # 
     # Args:
     #     n (int): number of corners in the polygon.
-    #     d (float): length of one of the sides of the polygon.
+    #     d (float or int): length of one of the sides of the polygon.
     # 
     # Returns:
     #     float: area of the polygon.
@@ -66,7 +60,7 @@ def polySide(n, area):
     # 
     # Args:
     #     n (int): number of corners in the polygon.
-    #     area (float): area of the polygon.
+    #     area (float or int): area of the polygon.
     #
     # Returns:
     #     float: length of one of the sides of the polygon. 
@@ -80,13 +74,32 @@ def polySide(n, area):
 from math import pi
 
 def find_circumcircle_area(sq_side):
-    # Insert code and comments below
-    pass # delete this line before submitting your code
+    # Calculate the area of a circle in which a square is inscribed.
+    #
+    # Args:
+    #    sq_side (float or int): length of a side of the square
+    # 
+    # Returns:
+    #     float: area of the circle in which the square is inscribed 
+
+    sq = lambda x: x * x
+    diameter_squared = sq(sq_side) + sq(sq_side) # diameter of the circle is equal to the hypotenuse of the isosceles triangle with 2 of its sides as sq_side
+    radius_squared = diameter_squared / 4
+    circumcircle_area = pi * radius_squared
+    return circumcircle_area
 
 
 # Task 4: Gradient of a function at a point
 # =========================================
 
 def derivative(f):
-    # Insert code and comments below
-    pass # delete this line before submitting your code
+    # Derives a function which calculates the derivative or gradient at a point via the finite difference method
+    #
+    # Args:
+    #     f (function): function to differentiate
+    #
+    # Returns:
+    #     function: derivative of function f
+
+    step_size = 1e-5
+    return lambda x: ((f(x + step_size) - f(x)) / step_size)
