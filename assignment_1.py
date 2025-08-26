@@ -64,7 +64,7 @@ def polySide(n, area):
     #
     # Returns:
     #     float: length of one of the sides of the polygon. 
-
+    
     return sqrt((4 * area * tan(pi / n)) / n)
 
 
@@ -102,4 +102,5 @@ def derivative(f):
     #     function: derivative of function f
 
     step_size = 1e-5
-    return lambda x: ((f(x + step_size) - f(x)) / step_size)
+    derivative = lambda x: ((f(x + step_size) - f(x)) / step_size)
+    return derivative
