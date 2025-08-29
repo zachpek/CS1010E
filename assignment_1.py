@@ -65,7 +65,8 @@ def polySide(n, area):
     # Returns:
     #     float: length of one of the sides of the polygon. 
     
-    return sqrt((4 * area * tan(pi / n)) / n)
+    polygon_side_length = sqrt((4 * area * tan(pi / n)) / n) # rearrange formula in areaPoly to make polygon side length d the subject
+    return polygon_side_length
 
 
 # Task 3: Area of a circle with an inscribed square
