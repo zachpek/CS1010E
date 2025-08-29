@@ -97,10 +97,10 @@ def derivative(f):
     # Derives a function which calculates the derivative or gradient at a point via the finite difference method
     #
     # Args:
-    #     f (function): function to differentiate
+    #     f (function): function which takes 1 argument to differentiate
     #
     # Returns:
-    #     function: derivative of function f
+    #     function: derivative of function f which takes 1 argument
 
     step_size = 1e-5
     derivative = lambda x: ((f(x + step_size) - f(x)) / step_size)
