@@ -85,7 +85,7 @@ def find_circumcircle_area(sq_side):
 
     sq = lambda x: x * x
     diameter_squared = sq(sq_side) + sq(sq_side) # diameter of the circle is equal to the hypotenuse of the isosceles triangle with 2 of its sides as sq_side
-    radius_squared = diameter_squared / 4
+    radius_squared = diameter_squared / sq(2)
     circumcircle_area = pi * radius_squared
     return circumcircle_area
 
