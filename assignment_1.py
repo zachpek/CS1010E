@@ -25,11 +25,11 @@ def rootsCharacter(a, b, c):
 
     discriminant = b ** 2 - 4 * a * c # non-negative as b^2 >= 4ac and hence b^2 - 4ac >= 0
     sqrt_discriminant = sqrt(discriminant) # compute once and store in sqrt_discriminant, will not raise ValueError as discriminant is non-negative
-    denominator = 2 * a # compute once and store in denominator
+    denominator = 2 * a
     root_1 = (-b + sqrt_discriminant) / denominator
     root_2 = (-b - sqrt_discriminant) / denominator
-    root_1_positive = root_1 > 0 # computes a boolean (True if root_1 is positive and False if root_1 is negative) once and stores in root_1_positive
-    root_2_positive = root_2 > 0 # computes a boolean (True if root_2 is positive and False if root_2 is negative) once and stores in root_2_positive
+    root_1_positive = root_1 > 0
+    root_2_positive = root_2 > 0
     return 1 if root_1_positive and root_2_positive \
         else -1 if not root_1_positive and not root_2_positive \
             else 0
