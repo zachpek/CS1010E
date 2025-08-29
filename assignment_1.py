@@ -81,7 +81,7 @@ def find_circumcircle_area(sq_side):
     #    sq_side (float or int): length of a side of the square
     # 
     # Returns:
-    #     float: area of the circle in which the square is inscribed 
+    #    float: area of the circle in which the square is inscribed 
 
     sq = lambda x: x * x
     diameter_squared = sq(sq_side) + sq(sq_side) # diameter of the circle is equal to the hypotenuse of the isosceles triangle with 2 of its sides as sq_side
