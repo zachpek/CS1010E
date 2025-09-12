@@ -41,3 +41,16 @@ def taylor_cos(x, d):
         n += 1
     return series
 
+# part 4
+
+def burgerPriceDumb(burger):
+    price = 0
+    buns = sum(filter(lambda letter: letter == 'B', burger)) * 0.5
+    return price
+
+def burgerPrice(burger):
+    def ingredient_price(ingredient):
+        return 0.5 if ingredient == 'B' else 
+    return sum(map(ingredient_price, burger))
+
+# part 5:
