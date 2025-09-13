@@ -88,7 +88,7 @@ def checksum_calculator_ho(multiplier):
         # The 7 computation steps are outlined in page 2 of the assignment handout.
         #
         # Args:
-        #     plate (str): The car licence plate.
+        #     plate (str): The car licence plate which must consist only of alphabets and numbers.
         # 
         # Returns:
         #     str: The corresponding checksum.
