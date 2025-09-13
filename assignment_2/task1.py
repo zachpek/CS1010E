@@ -93,8 +93,8 @@ def checksum_calculator_ho(multiplier):
         # Returns:
         #     str: The corresponding checksum.
         
-        is_alphabet = lambda character: ord(character) >= ord('A')
-        is_number = lambda character: ord(character) < ord('A')
+        is_alphabet = lambda c: (ord('A') <= ord(c) <= ord('Z')) or (ord('a') <= ord(c) <= ord('z'))
+        is_number = lambda c: ord('0') <= ord(c) <= ord('9')
 
         prefix = tuple(filter(is_alphabet, plate))
         numbers = tuple(filter(is_number, plate))
