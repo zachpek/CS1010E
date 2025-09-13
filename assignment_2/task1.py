@@ -40,39 +40,74 @@ def convert_num_series(num_series):
     return converted_num_series
 
 def multiply_and_add_ho(multiplier):
-    # A higher order function which returns a function which takes a sequence and multiplies each element of the sequence.
-    #
+    # Returns a function that multiplies each element of a tuple by each element of a specified multiplier tuple and returns their sum.
+    # 
     # Args:
-    #     multiplier (tuple[int, int, int, int, int, int]): Specifies by what factor to multiply each element of a series.
+    #     multiplier (tuple[int, int, int, int, int, int]): A tuple of 6 integers used as multipliers in the function returned.
     #
     # Returns:
-    #     Callable[[tuple[int, int, int, int, int, int]], int]: A function which takes a sequence and multiplies each element of the sequence by the corresponding integer of the same index in the "multiplier" argument.
+    #     Callable[[tuple[int, int, int, int, int, int]], int]: A function that takes a tuple of 6 integers, multiplies each number of the tuple by the corresponding number of the same index in the 'multiplier' tuple, and returns the sum of the products.
+
     def multiply_series(series):
+        # Multiplies each number in the series by the corresponding number in the 'multiplier' tuple specified in the outer scope.
+        # 
+        # Args:
+        #     series (tuple[int, int, int, int, int, int]): A tuple of 6 integers to be multiplied.
+        # 
+        # Returns:
+        #     int: Sum of product of 'series' and 'multiplier'.
+        
         multiplied_series = map(lambda i: multiplier[i] * series[i], range(len(multiplier)))
         return sum(multiplied_series)
     return multiply_series
 
 def remainder_to_checksum_letter(remainder):
-    # 
+    # Takes an integer checksum remainder and returns the corresponding checksum letter in uppercase.
     #
     # Args:
-    #     remainder (int):
+    #     remainder (int): checksum remainder.
     #
     # Returns:
-    #     str:
+    #     str: uppercase checksum letter
 
-    return
+    checksum_letters = ('A', 'Z', 'Y', 'X', 'U', 'T', 'S', 'R', 'P', 'M', 'L', 'K', 'J', 'H', 'G', 'E', 'D', 'C', 'B') 
+    corresponding_checksum_letter = checksum_letters[remainder]
+    return corresponding_checksum_letter
 
 def checksum_calculator_ho(multiplier):
-    #
+    # Returns a function that computes the checksum of a car licence plate based on a multiplier.
     #
     # Args: 
-    #     multiplier (tuple[int, int, int, int, int, int])
+    #     multiplier (tuple[int, int, int, int, int, int]): A tuple of 6 integers used as multipliers in the function returned.
     #
     # Returns:
-    #     Callable[[tuple[int, int, int, int, int, int]], int]:
+    #     Callable[[str], str]: A function that takes a car licence plate string and returns the corresponding checksum.
 
-    
     def compute_checksum(plate):
-        return
+        # Computes the checksum of a car licence plate based on the 'multiplier' tuple specified in the outer scope.
+        # The 7 computation steps are outlined in page 2 of the assignment handout.
+        #
+        # Args:
+        #     plate (str): The car licence plate.
+        # 
+        # Returns:
+        #     str: The corresponding checksum.
+        
+        is_alphabet = lambda character: ord(character) >= ord('A')
+        is_number = lambda character: ord(character) < ord('A')
+
+        prefix = tuple(filter(is_alphabet, plate))
+        numbers = tuple(filter(is_number, plate))
+
+        prefix_series = convert_prefix(prefix)
+        num_series = convert_num_series(numbers)
+
+        combined_series = prefix_series + num_series
+
+        multiply_series = multiply_and_add_ho(multiplier)
+        sum_of_multiplied_series = multiply_series(combined_series)
+
+        remainder = sum_of_multiplied_series % 19
+
+        return remainder_to_checksum_letter(remainder)
     return compute_checksum
