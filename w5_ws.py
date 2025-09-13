@@ -50,7 +50,20 @@ def burgerPriceDumb(burger):
 
 def burgerPrice(burger):
     def ingredient_price(ingredient):
-        return 0.5 if ingredient == 'B' else 
-    return sum(map(ingredient_price, burger))
+        if ingredient == 'B':
+            return 0.5
+        elif ingredient == 'C':
+            return 0.8
+        elif ingredient == 'P':
+            return 1.5
+        elif ingredient == 'V':
+            return 0.7
+        elif ingredient == 'O':
+            return 0.4
+        elif ingredient == 'M':
+            return 0.9
+    return f'${sum(map(ingredient_price, burger)):.2f}'
 
 # part 5:
+
+from mealOrders import *

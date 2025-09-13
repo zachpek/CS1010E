@@ -30,14 +30,14 @@ def convert_num_series(num_series):
     # The integer 0 would be prepended to the tuple if the string has a length of less than 4.
     #
     # Args:
-    #     num_series (str): The digits we want to pack into a tuple. Thhis string has a maximum length of 4.
+    #     num_series (str): The digits we want to pack into a tuple. This string has a maximum length of 4.
     #
     # Returns:
     #     tuple[int, int, int, int]: A tuple of 4 integers, consisting of the digits in num_series we want to pack into a tuple.
 
     number_of_zeros_to_prepend = 4 - len(num_series)
-    num_series = number_of_zeros_to_prepend * '0' + num_series
-    return tuple(map(int, num_series))
+    converted_num_series = number_of_zeros_to_prepend * (0,) + tuple(map(int, num_series))
+    return converted_num_series
 
 def multiply_and_add_ho(multiplier):
     def um_something(series):
