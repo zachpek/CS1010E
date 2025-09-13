@@ -40,5 +40,39 @@ def convert_num_series(num_series):
     return converted_num_series
 
 def multiply_and_add_ho(multiplier):
-    def um_something(series):
-        pass
+    # A higher order function which returns a function which takes a sequence and multiplies each element of the sequence.
+    #
+    # Args:
+    #     multiplier (tuple[int, int, int, int, int, int]): Specifies by what factor to multiply each element of a series.
+    #
+    # Returns:
+    #     Callable[[tuple[int, int, int, int, int, int]], int]: A function which takes a sequence and multiplies each element of the sequence by the corresponding integer of the same index in the "multiplier" argument.
+    def multiply_series(series):
+        multiplied_series = map(lambda i: multiplier[i] * series[i], range(len(multiplier)))
+        return sum(multiplied_series)
+    return multiply_series
+
+def remainder_to_checksum_letter(remainder):
+    # 
+    #
+    # Args:
+    #     remainder (int):
+    #
+    # Returns:
+    #     str:
+
+    return
+
+def checksum_calculator_ho(multiplier):
+    #
+    #
+    # Args: 
+    #     multiplier (tuple[int, int, int, int, int, int])
+    #
+    # Returns:
+    #     Callable[[tuple[int, int, int, int, int, int]], int]:
+
+    
+    def compute_checksum(plate):
+        return
+    return compute_checksum
