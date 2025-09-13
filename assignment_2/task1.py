@@ -19,7 +19,7 @@ def convert_prefix(prefix):
     #     prefix (str): The prefix of a car licence plate. This string must be non-empty.
     #
     # Returns:
-    #     tuple[int, int]: A tuple of two integers, which are the converted digits of the last two alphabets in prefix
+    #     tuple[int, int]: A tuple of two integers, which are the converted digits of the last two alphabets in prefix.
 
     number_of_zeros_to_prepend = 2 - len(prefix)
     converted_prefix = number_of_zeros_to_prepend * (0,) + tuple(map(alphabet_to_digit, prefix[-2:]))
