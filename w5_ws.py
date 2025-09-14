@@ -50,20 +50,35 @@ def burgerPriceDumb(burger):
 
 def burgerPrice(burger):
     def ingredient_price(ingredient):
-        if ingredient == 'B':
-            return 0.5
-        elif ingredient == 'C':
-            return 0.8
-        elif ingredient == 'P':
-            return 1.5
-        elif ingredient == 'V':
-            return 0.7
-        elif ingredient == 'O':
-            return 0.4
-        elif ingredient == 'M':
-            return 0.9
-    return f'${sum(map(ingredient_price, burger)):.2f}'
+        # if ingredient == 'B':
+        #     return 0.5
+        # elif ingredient == 'C':
+        #     return 0.8
+        # elif ingredient == 'P':
+        #     return 1.5
+        # elif ingredient == 'V':
+        #     return 0.7
+        # elif ingredient == 'O':
+        #     return 0.4
+        # elif ingredient == 'M':
+        #     return 0.9
+        return 0.5 if ingredient == 'B' \
+            else 0.8 if ingredient == 'C' \
+            else 1.5 if ingredient == 'P' \
+            else 0.7 if ingredient == 'V' \
+            else 0.4 if ingredient == 'O' \
+            else 0.9 if ingredient == 'M' \
+            else None
+    return sum(map(ingredient_price, burger))
 
 # part 5:
 
 from mealOrders import *
+
+def enoughMoney(order, moneyInMyPocket):
+    return moneyInMyPocket >= sum(map(burgerPrice, order))
+
+def printReceipt(order):
+    print('Your orders:')
+    for burger in order:
+        print(f'{burger} ${burgerPrice(burger)}')
