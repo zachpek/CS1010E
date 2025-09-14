@@ -79,6 +79,34 @@ def enoughMoney(order, moneyInMyPocket):
     return moneyInMyPocket >= sum(map(burgerPrice, order))
 
 def printReceipt(order):
+    total_price = 0
     print('Your orders:')
     for burger in order:
-        print(f'{burger} ${burgerPrice(burger)}')
+        price = burgerPrice(burger)
+        total_price += price
+        print(f'{burger} ${price}')
+    print('-' * 14)
+    print(f'Total: {total_price}')
+
+def removeOrder(order, item):
+    if item in order:
+        order_to_return = ()
+        for borgar in order:
+            if borgar != item:
+                order_to_return += (borgar,) # oh no this removes multiple occurrences of the item in the order
+        return order_to_return            
+    else:
+        print('not in order alr')
+
+def removeOrderHenry(order, item):
+    if not item in order:
+        print(f'The item {item} is not in the order.')
+        return order
+    result = ()
+    found = False
+    for itm in order:
+        if found or item != itm:
+            result += (itm,)
+        else:
+            found = True # nice, so after the first occurence of itm every element will be appended to the tuple
+    return result
