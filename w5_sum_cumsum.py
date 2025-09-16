@@ -4,6 +4,7 @@ def s(seq):
     return seq[-1] + s(seq[:-1]) if seq else 0
 
 def cumsum(seq):
+    # ok actl maybe this isnt so recursive after all??
     return cumsum(seq[:-1]) + (s(seq),) if seq else ()
 
 def cumsum_henry(seq):
