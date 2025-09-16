@@ -12,3 +12,9 @@ def cumsum_henry(seq):
         return seq # neat, one less cycle than mine
     lst = cumsum_henry(seq[:-1])
     return lst + (lst[-1] + seq[-1],) # nice, cumsum logic here already
+
+def cumsum_henry_my_shot(seq):
+    if len(seq) > 1:
+        summed_seq = cumsum_henry_my_shot(seq[:-1])
+        return summed_seq + (summed_seq[-1] + seq[-1],)
+    return seq
