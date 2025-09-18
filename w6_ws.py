@@ -66,4 +66,8 @@ def find_e_rec(x, n):
     return x ** n / factorial(n) + find_e_rec(x, n - 1) if n else 1
 
 def find_e_ite(x, n):
-    
+    summed = 1
+    while n:
+        summed += x ** n / factorial(n)
+        n -= 1
+    return summed
