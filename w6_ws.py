@@ -1,0 +1,64 @@
+# part 1 recursion
+
+def burgerPriceW5(burger):
+    def ingredient_price(ingredient):
+        return 0.5 if ingredient == 'B' \
+            else 0.8 if ingredient == 'C' \
+            else 1.5 if ingredient == 'P' \
+            else 0.7 if ingredient == 'V' \
+            else 0.4 if ingredient == 'O' \
+            else 0.9 if ingredient == 'M' \
+            else None
+    return sum(map(ingredient_price, burger))
+
+
+def ingredient_price(ingredient):
+    return 0.5 if ingredient == 'B' \
+        else 0.8 if ingredient == 'C' \
+        else 1.5 if ingredient == 'P' \
+        else 0.7 if ingredient == 'V' \
+        else 0.4 if ingredient == 'O' \
+        else 0.9 if ingredient == 'M' \
+        else None
+    
+def burgerPrice(burger):
+    return ingredient_price(burger[0]) + burgerPrice(burger[1:]) if len(burger) > 1 else ingredient_price(burger)
+
+def ne(x, y):
+    if x == 0 or y == 0:
+        return 1
+    return ne(x - 1, y) + ne(x, y - 1)
+
+# part 2 recursion vs iteration
+
+def digit_sum_rec(n):
+    return digit_sum_rec(n // 10) + n % 10 if n // 10 else n
+
+def digit_sum_rec_2(n):
+    return n % 10 + digit_sum_rec(n // 10) if n else 0
+
+def digit_sum_ite(n):
+    summed = 0
+    while n:
+        summed += n % 10
+        n = n // 10
+    return summed
+
+def final_digit_sum_rec(n):
+    pass
+
+def final_digit_sum_ite(n):
+    summed = n
+    while summed // 10:
+        summed = 0
+        while n:
+            summed += n % 10
+            n = n // 10
+        n = summed
+    return summed
+
+def find_e_rec(x, n):
+    pass
+
+def find_e_ite(x, n):
+    pass
