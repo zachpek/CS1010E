@@ -45,7 +45,10 @@ def digit_sum_ite(n):
     return summed
 
 def final_digit_sum_rec(n):
-    pass
+    intermediate = final_digit_sum_rec(n // 10) + n % 10 if n else 0
+    if intermediate // 10:
+        return final_digit_sum_rec(intermediate)
+    return intermediate
 
 def final_digit_sum_ite(n):
     summed = n
@@ -57,8 +60,10 @@ def final_digit_sum_ite(n):
         n = summed
     return summed
 
+from math import factorial
+
 def find_e_rec(x, n):
-    pass
+    return x ** n / factorial(n) + find_e_rec(x, n - 1) if n else 1
 
 def find_e_ite(x, n):
-    pass
+    
