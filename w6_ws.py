@@ -24,6 +24,9 @@ def ingredient_price(ingredient):
 def burgerPrice(burger):
     return ingredient_price(burger[0]) + burgerPrice(burger[1:]) if len(burger) > 1 else ingredient_price(burger)
 
+def burgerPriceAnother(burger):
+    return ingredient_price(burger[-1]) + burgerPrice(burger[:-1]) if burger else 0
+
 def ne(x, y):
     if x == 0 or y == 0:
         return 1
