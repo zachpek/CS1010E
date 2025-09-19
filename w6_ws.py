@@ -107,7 +107,17 @@ def final_digit_sum_ite(n):
             summed += n % 10
             n = n // 10
         n = summed
-    return summed
+    return summed   
+
+def final_sum_henry_rec(n):
+    if n > 9:
+        final_sum_henry_rec()
+    # copy from slides
+
+def final_sum_henry_ite(n):
+    while n > 9:
+        n = digit_sum_ite(n)
+    return n
 
 from math import factorial
 
