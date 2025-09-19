@@ -17,6 +17,25 @@ def maxi_henry(tup):
         return a
     else:
         return tup[0]
+    
+def adj_pair(tup):
+    if len(tup) == 2:
+        return tup[0] + tup[1]
+    next_s = adj_pair(tup[1:])
+    current_s = tup[0] + tup[1]
+    if next_s > current_s:
+        return next_s
+    else:
+        return current_s
+    
+def adj_pair_henry(tup):
+    if len(tup) == 2:
+        return (tup, sum(tup))
+    a, b = adj_pair_henry(tup[1:])
+    here = tup[0] + tup[1]
+    if here > b:
+        return(tup[0:2], here)
+    return (a, b)
 
 # part 1 recursion
 
