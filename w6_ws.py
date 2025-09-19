@@ -27,6 +27,11 @@ def burgerPrice(burger):
 def burgerPriceAnother(burger):
     return ingredient_price(burger[-1]) + burgerPrice(burger[:-1]) if burger else 0
 
+def burger_price_henry(burger):
+    if burger == '':
+        return 0
+    return ingredient_price(burger[0]) + burger_price_henry(burger[1:])
+
 def ne(x, y):
     if x == 0 or y == 0:
         return 1
