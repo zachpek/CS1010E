@@ -20,13 +20,15 @@ def maxi_henry(tup):
     
 def adj_pair(tup):
     if len(tup) == 2:
-        return tup[0] + tup[1]
-    next_s = adj_pair(tup[1:])
+        return tup, tup[0] + tup[1]
+    pair, next_s = adj_pair(tup[1:])
     current_s = tup[0] + tup[1]
     if next_s > current_s:
-        return next_s
+        return pair, next_s
     else:
-        return current_s
+        # no need indicate "else": just return on the next lin
+        # gives u a long ahh tuple: return (tup, current_s)
+        return tup[:2], current_s
     
 def adj_pair_henry(tup):
     if len(tup) == 2:
