@@ -74,3 +74,9 @@ def find_e_ite(x, n):
         summed += x ** n / factorial(n)
         n -= 1
     return summed
+
+def find_e_ite_for(x, n):
+    summed = 1
+    for i in range(1, n+1):
+        summed += x ** i / factorial(i)
+    return summed
