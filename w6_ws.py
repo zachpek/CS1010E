@@ -1,3 +1,23 @@
+# henry's practices
+
+def maxi(tup):
+    if len(tup) == 1:
+        return tup[0]
+    a = maxi(tup[:-1])
+    if a > tup[-1]:
+        return a
+    else:
+        return tup[-1]
+    
+def maxi_henry(tup):
+    if len(tup) == 1:
+        return tup[0]
+    a = maxi_henry(tup[1:])
+    if a > tup[0]:
+        return a
+    else:
+        return tup[0]
+
 # part 1 recursion
 
 def burgerPriceW5(burger):
