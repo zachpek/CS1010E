@@ -110,9 +110,8 @@ def final_digit_sum_ite(n):
     return summed   
 
 def final_sum_henry_rec(n):
-    if n > 9:
-        final_sum_henry_rec()
-    # copy from slides
+    return n if n <= 9 \
+        else final_sum_henry_rec(digit_sum_rec(n))
 
 def final_sum_henry_ite(n):
     while n > 9:
