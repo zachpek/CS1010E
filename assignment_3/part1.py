@@ -14,7 +14,7 @@ def matchResistors(R, n):
     while left < right:
         current_sum = sorted_list[left] + sorted_list[right]
         if current_sum == n:
-            matched += (sorted_list[left], sorted_list[right]),
+            matched += ((sorted_list[left], sorted_list[right]),)
             left += 1
             right -= 1
         elif current_sum < n:
