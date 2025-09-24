@@ -9,18 +9,16 @@ def matchResistors(R, n):
     #     tuple[tuple[Union[float, int], Union[float, int]], ...]: Tuples of pairs of resistors that sum to n ohms.
 
     sorted_list = sorted(R)
-    half = n / 2
-    i = 0
-    j = -1
-    next_j = -1
+    left, right = 0, len(sorted_list) - 1
     matched = ()
-    while sorted_list[i] <= half:
-        while sorted_list[j] > half:
-            if sorted_list[i] + sorted_list[j] == n:
-                matched += ((sorted_list[i], sorted_list[j]),)
-                next_j = j - 1
-                break
-            j -= 1
-        j = next_j
-        i += 1
+    while left < right:
+        current_sum = sorted_list[left] + sorted_list[right]
+        if current_sum == n:
+            matched += (sorted_list[left], sorted_list[right]),
+            left += 1
+            right -= 1
+        elif current_sum < n:
+            left += 1
+        else:
+            right -= 1
     return matched
