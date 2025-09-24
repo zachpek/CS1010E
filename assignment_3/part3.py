@@ -16,9 +16,7 @@ def check(puzzle, mapping):
     mapping_letters = ''
     for letter in mapping:
         if letter != '.':
-            if letter in mapping_letters:
-                return False
-            if letter not in puzzle_letters:
+            if letter in mapping_letters or letter not in puzzle_letters:
                 return False
             mapping_letters += letter
         
