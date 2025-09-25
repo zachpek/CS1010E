@@ -1,5 +1,5 @@
 def check(puzzle, mapping):
-    # Checks if a given mapping is valid.
+    # Checks if a given mapping is valid for the given puzzle.
     # 
     # Args:
     #     puzzle (tuple[str, ...]): Tuple of at least 2 elements, with the first (n - 1) elements being words to be added together, and the n-th element being the result that it should add up to.
@@ -12,6 +12,10 @@ def check(puzzle, mapping):
     puzzle_letters = ''
     for word in puzzle:
         puzzle_letters += word
+
+    for letter in puzzle_letters:
+        if letter not in mapping:
+            return False
 
     mapping_letters = ''
     for letter in mapping:
@@ -76,7 +80,7 @@ def assign(letters, numbers_left, mapping, puzzle):
     #     letters (tuple[str, ...]): The letters that have yet to be allocated a mapping.
     #     numbers_left (tuple[int, ...]): The numbers that can be mapped to the letters.
     #     mapping (str): The current mapping that has been achieved.
-    #     puzzle (tuple[str, ...]): The addition puzzle
+    #     puzzle (tuple[str, ...]): Tuple of at least 2 elements, where the first (n - 1) elements are words to be added together, and the n-th element is the result that it should add up to.
     # 
     # Returns:
     #     str or bool: Returns deduced mapping if the above problem is solvable else returns False.
@@ -98,8 +102,8 @@ def assign(letters, numbers_left, mapping, puzzle):
         # call assign recursively, ensure that the size of the first argument 
         # (about letters waiting to be matched) has reduced, so the 
         # recursive call should terminate eventually
-        res = assign(pass,pass,pass,pass) # fill in the arguments here
-        
+        res = assign(letters[1:], numbers_left, map_copy, puzzle) # fill in the arguments here
+
         # Check the result from the recursive call
         if res:
             return res
@@ -110,3 +114,15 @@ def assign(letters, numbers_left, mapping, puzzle):
     # Exiting from the for-loop
     # going through all available numbers, fail to find a good mapping
     return False
+
+def solve(puzzle):
+    # Solves the puzzle provided, returning the corresponding mapping if the puzzle is solvable, and returning False if the puzzle is unsolvable.
+    # 
+    # Args:
+    #     puzzle (tuple[str, ...]): Tuple of at least 2 elements, where the first (n - 1) elements are words to be added together, and the n-th element is the result that it should add up to.
+    # 
+    # Returns:
+    #     str or None: Returns deduced mapping if the above problem is solvable else returns False.
+    
+    
+    pass
