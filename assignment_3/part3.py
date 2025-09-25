@@ -124,5 +124,7 @@ def solve(puzzle):
     # Returns:
     #     str or None: Returns deduced mapping if the above problem is solvable else returns False.
     
-    
-    pass
+    unique_letters_tup = unique_letters(puzzle)
+    all_possible_numbers_left = tuple(range(10))
+    empty_mapping = '.' * 10
+    return assign(unique_letters_tup, all_possible_numbers_left, empty_mapping, puzzle)
