@@ -33,14 +33,17 @@ def find_primes_khoo(n):
     return prime
 
 def find_primes_khoo_efficient(n):
-    # this can also be generalised 
     nonprimes = []
-    def append(lst, n):
-        # also note that this function returns nothing: it capitalises on the fact that lists are mutable (& uses pass by value)
-        lst[:0] = n # adds element n at the start of the list
-        # or lst.append(n)
-    # oh well I didn't catch it - I could try extending my list of non-primes using list comprehensions as a loop
-    #[nonprimes.append(n) for n in range(2, round(n ** 0.5) + 1) if ]
+    [nonprimes.append(j) for i in range(2, int(n ** 0.5) + 1) \
+        if i not in nonprimes for j in range(i * 2, n + 1, i)]
+    # Google: the above isn't pythonic (and it's equivalent to the below:)
+    # nonprimes = []
+    # for test in range(2, int(n ** 0.5) + 1):
+    #     if test not in nonprimes: # if test is not a prime number, all multiples of it have already been captured in nonprimes list (e.g., for 4, every one of its multiples up to n have been captured)
+    #         for np in range(test * 2, n + 1, test):
+    #             nonprimes.append(np)
+    # return nonprimes
+    return [p for p in range(2, n + 1) if p not in nonprimes]
 
 def find_primes_gemini(n):
     """
