@@ -7,13 +7,29 @@ def list_filter_ite(func, lst):
             result.append(elem)
     return result
 
+def lf_ls_compre(func, lst):
+    return [elem for elem in lst if func(elem)]
+
 def list_filter_rec(func, lst):
+    # oh dear, slicing the list after elif creates a new list - the creation of said list wastes space
+    # and list slicing doesn't exist in other languages
+    # so we use indexing instead of slicing as seen below in lf_khoo
     if not lst:
         return []
     elif func(lst[0]):
         return [lst[0]] + list_filter_rec(func, lst[1:]) # almost forgot to put lst[0] into a list
     else:
         return list_filter_rec(func, lst[1:])
+
+def lf_khoo(func, lst):
+    def helper(idx):
+        if idx == len(lst):
+            return []
+        elif func(lst[idx]):
+            return [lst[idx]] + helper(idx + 1)
+        else:
+            return helper(idx + 1)
+    return helper(0)
 
 # part 2
 
