@@ -68,6 +68,19 @@ def mat_mult(A, B):
     
     return [[sum([A[r][k] * B[k][c] for k in range(n_n)]) for c in range(n_cols)] for r in range(n_rows)]
 
+def mat_mult_henry(A, B):
+    r = len(A)
+    c = len(B[0])
+    s = len(B)
+    M = [[0] * c for _ in range(r)]
+    
+    for i in range(r):
+        for j in range(c):
+            for k in range(s):
+                M[i][j] += A[i][k] * B [k][j] # cool
+
+    return M
+
 def submat(M, r1, r2, c1, c2):
     return [[M[r][c] for c in range(c1, c2 + 1)] \
             for r in range(r1, r2 + 1)]
