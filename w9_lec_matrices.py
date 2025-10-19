@@ -61,6 +61,13 @@ def mat_mult_3x3(A, B):
             M[r][c] = sum([A[r][k] * B[k][c] for k in range(3)])
     return M
 
+def mat_mult(A, B):
+    n_rows = len(A)
+    n_cols = len(B[0])
+    n_n = len(B) # = len(A[0])
+    
+    return [[sum([A[r][k] * B[k][c] for k in range(n_n)]) for c in range(n_cols)] for r in range(n_rows)]
+
 def submat(M, r1, r2, c1, c2):
     return [[M[r][c] for c in range(c1, c2 + 1)] \
             for r in range(r1, r2 + 1)]
