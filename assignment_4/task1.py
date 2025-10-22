@@ -11,11 +11,10 @@ def set_smooth(left, centre, right):
         for i in range(wave_length):
             if i == 0:
                 smoothed_i = 0 + wave[i] * centre + wave[i + 1] * right
+            elif i == wave_length - 1:
+                smoothed_i = prev_elem * left + wave[i] * centre + 0
             else:
-                if i == wave_length - 1:
-                    smoothed_i = prev_elem * left + wave[i] * centre + 0
-                else:
-                    smoothed_i = prev_elem * left + wave[i] * centre + wave[i + 1] * right
+                smoothed_i = prev_elem * left + wave[i] * centre + wave[i + 1] * right
             prev_elem = wave[i]
             wave[i] = int(smoothed_i)
         return wave
