@@ -1,3 +1,8 @@
+def fib(n):
+    if n <= 1:
+        return n
+    return fib(n - 1) + fib(n - 2)
+
 def memo_fib(n):
     results = {0: 0, 1: 1}
     def fib(n):
