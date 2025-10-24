@@ -73,3 +73,31 @@ def deep_map2(fn, lst):
         else:
             result.append(fn(elem))
     return result
+
+def flatten(lst):
+    if not lst:
+        return []
+    elem = lst[0]
+    if type(elem) == list:
+        return flatten(elem) + flatten(lst[1:])
+    else:
+        return [elem] + flatten(lst[1:])
+    
+def flatten2(lst):
+    if not lst:
+        return []
+    if type(lst[0]) != list:
+        result = [lst[0]]
+    else:
+        result = flatten2(lst[0])
+    result.extend(flatten2(lst[1:]))
+    return result
+
+def flatten3(lst):
+    result = []
+    for elem in lst:
+        if type(elem) != list:
+            result.append(elem) # append if it's not a list
+        else:
+            result.extend(flatten3(elem)) # extend if it's a list
+    return result
