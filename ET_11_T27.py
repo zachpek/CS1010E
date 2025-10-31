@@ -2,7 +2,7 @@
 # NUSNET ID: e1525681
 # Question Number: 7
 
-def fname(M):
+def code7(M):
     Mrows = len(M)
     Mcols = len(M[0])
     T = [[0] * Mcols for _ in range(Mrows)]
