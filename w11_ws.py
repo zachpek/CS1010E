@@ -35,6 +35,14 @@ def minor_mat(M, r, c):
 
     return S
 
+def minor_mat_khoo(M, r, c):
+    S = []
+
+    for row in M[:r] + M[r + 1:]:
+        S.append(row[:c] + row[c + 1:])
+
+    return S
+
 def submat_sums(M, srows, scols):
     Mrows = len(M)
     Mcols = len(M[0])
