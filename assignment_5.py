@@ -108,18 +108,13 @@ def migrate(society) :
     Returns:
         the resulting society after migration.
     '''
-    n_rows, n_cols = len(society), len(society[0])
+    n_rows = len(society)
     count_per_row = []
     resulting_soc = []
     
     for r in range(n_rows):
-        count = 0
-        for c in range(n_cols):
-            if society[r][c] == '*':
-                count += 1
-        count_per_row.append((count, r))
+        count_per_row.append((society[r].count('*'), r))
     count_per_row.sort(key=lambda pair: pair[0], reverse=True)
-    print(count_per_row)
     
     for _, r_to_insert in count_per_row:
         resulting_soc.append(society[r_to_insert])
