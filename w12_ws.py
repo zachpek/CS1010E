@@ -47,3 +47,6 @@ def bisection_ite(f, a, b, epsilon):
         xm = (a + b) / 2
 
     return xm    
+
+def sqr_root(A, epsilon):
+    return bisection_ite(lambda x: x * x - A, 1, A, epsilon)
