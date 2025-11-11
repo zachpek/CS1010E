@@ -81,6 +81,19 @@ class Mage(Character):
 
 
 ### BERSERKER
+class Berserker(Fighter):
+  def __init__(self):
+    super().__init__()
+    self.name = 'Berserker'
+    self.cost = 200
+
+  def act(self, my_team, enemy):    
+    target = rand_alive(enemy)
+    if self.hp <= 0.5 * Berserker().hp:
+      self.str = 200
+      dprint(f'Berserk mode! Attack double!')
+    dprint(f'Hurt enemy {target} by damage {self.str}.')
+    enemy[target].got_hurt(self.str)
 
 
 ### ARCHMAGE
