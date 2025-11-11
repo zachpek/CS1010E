@@ -91,13 +91,32 @@ class Berserker(Fighter):
     target = rand_alive(enemy)
     if self.hp <= 0.5 * Berserker().hp:
       self.str = 200
-      dprint(f'Berserk mode! Attack double!')
+      dprint('Berserk mode! Attack double!')
     dprint(f'Hurt enemy {target} by damage {self.str}.')
     enemy[target].got_hurt(self.str)
 
 
 ### ARCHMAGE
+class ArchMage(Mage):
+  def __init__(self):
+    super().__init__()
+    self.name = 'ArchMage'
+    self.cost = 600
+
+  def cast(self, my_team, enemy):
+    if count_alive(my_team) > 1:
+      super().cast(my_team, enemy)
+    else:
+      self.mana -= MANA_COST
+      dprint('Cast KABOOM to every enemy!')
+      for target in enemy:
+        target.got_hurt(self.int * 2)
 
 
 ### NECROMANCER
+class Necromancer(Mage):
+  def __init__(self):
+    super().__init__()
+    self.name = 'Necromancer'
+    self.cost = 400
 
