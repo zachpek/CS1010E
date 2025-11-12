@@ -119,4 +119,15 @@ class Necromancer(Mage):
     super().__init__()
     self.name = 'Necromancer'
     self.cost = 400
-
+  
+  def cast(self, my_team, enemy):
+    if count_dead(my_team):
+      self.mana -= MANA_COST
+      dead_idx = rand_death(my_team)
+      target_teammate = my_team[dead_idx]
+      hp_to_add = int(type(target_teammate)().hp * 0.5)
+      target_teammate.hp = hp_to_add
+      target_teammate.alive = True
+      print(f'Reviving member {dead_idx} with {hp_to_add} hp')
+    else:
+      super().cast(my_team, enemy)
