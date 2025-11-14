@@ -42,3 +42,8 @@ class MinimumAccount(BankAccount):
             else:
                 self.balance -= 20
         super().year_end_processing()
+
+    def year_end_processing_khoo(self):
+        if self.balance < 1000:
+            self.balance = max(self.balance - 20, 0)
+        super().year_end_processing()
