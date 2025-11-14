@@ -37,5 +37,8 @@ class MinimumAccount(BankAccount):
     
     def year_end_processing(self):
         if self.balance <= 1000:
-            self.balance -= 20
+            if self.balance <= 20:
+                self.balance = 0
+            else:
+                self.balance -= 20
         super().year_end_processing()
