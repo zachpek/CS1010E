@@ -25,8 +25,8 @@ class Man:
         if self_ancestor_number == 0:
             return 'me'
         elif self_ancestor_number >= 1:
-            return 'son' + "'s son'" * (self_ancestor_number - 1)
+            return 'son' + "'s son" * (self_ancestor_number - 1)
         else:
             if other_ancestor_number > 0:
-                return "dad" + "'s dad'" * (other_ancestor_number - 1)
+                return "dad" + "'s dad" * (other_ancestor_number - 1)
         return 'who?'
