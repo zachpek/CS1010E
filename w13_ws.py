@@ -31,6 +31,12 @@ class BankAccount:
             other.balance += amount
             self.balance -= amount
 
+    def transfer_to_methods(self, other, amount):
+        if other.balance < amount:
+            print('Insufficient funds for transfer.')
+        else:
+            other.deposit(self.withdraw(self.name, amount))
+
 class MinimumAccount(BankAccount):
     def __init__(self, name, balance):
         super().__init__(name, balance, 0.1)
